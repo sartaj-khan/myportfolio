@@ -47,6 +47,17 @@ body {
     height:100%;
     display:inline-block;
 }
+.copyright {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a1818;
+    color: #f7f5f5ee;
+    padding: 4px;
+    text-align: left;
+    font-size: 12px;
+  }
 .box1 {
     background:rgb(255, 50, 50);
 }
