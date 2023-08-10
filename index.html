@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
+
 </head>
 
 <body>
@@ -169,18 +170,57 @@
            <b> <a href = "mailto: sartajkhan281998@gmail.com">Click here to send your feedback directly by Email</a></b> <br><br>
           <b> <br>OR*<br> </b>
             <p>
-            <!-- <form action="https://formcarry.com/s/JKNu0aGkeQ" method="POST" class="formcarry-form"> -->
-                <form action="" method="POST" class="formcarry-form">
-                <input name="name" type="text" placeholder="Enter Your Name" required />
-                <input name="email" type="email" placeholder="Enter Your Email " required /><br>
-                <textarea name="message" placeholder="Enter Your Query" required rows="5"></textarea><br>
-                <button class="btn_one">Send</button>
-            </form>
+          
             </p>
+        
+            <form onsubmit="sendEmail(); reset(); return ">
+                <input type="text" id="name" name="name" placeholder="Enter Your Name" required><br><br>
+
+                <input type="email" id="email" name="email" placeholder="Enter Your Email" required><br><br>
+  
+                <textarea id="feedback" name="feedback" rows="3" cols="40" placeholder="Enter Your Feedback" required></textarea><br><br>
+                
+                <button class="btn_one" type="submit">Send</button>
+              </form>
+              
         </section>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+function sendEmail() {
+    Email.send({
+        SecureToken: "0cffe088-5984-4344-9d74-28190bc806cd",
+        To: 'sartajkhan281998@gmail.com', 
+        From: document.getElementById("email").value,
+        Subject: 'Feedback from My Portfolio Website',
+        Body: "Name: " + document.getElementById("name").value
+        + "<br> feedback: " + document.getElementById("feedback").value
+    }).then(
+        message => alert("Message Sent Succesfully"  )
+        )
+        // .catch(
+        //     error => alert("An error occurred while sending the message. Please try again later.")
+        // );
+}
+
+
+
+</script>
     </div>
     <div id="footer">
-        made with ❤️ in  &#x1f1ee; &#x1f1f3; <br> <a href="https://sartaj-khan.github.io/portfolio/">SartajKhan.com</a>
+           <br>
+        <h6 class="copyright">KHAN © 2023. All Rights Reserved &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;made with ❤️ in &#x1F1EE;&#x1F1F3;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          
+            Design and Developed by<a href="https://sartaj-khan.github.io/portfolio/" >Sartaj Khan</a>
+        </h6>
+        
     </div>
     <script src="index.js" type="text/javascript"></script>
     <script src="particles.js"></script>
